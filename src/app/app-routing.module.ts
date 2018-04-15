@@ -24,3 +24,4 @@ const appRoutes: Routes = [
 })
 
 export class AppRoutingModule { }
+//this is chlid routing and get good angular.4 time 07:08 AM 

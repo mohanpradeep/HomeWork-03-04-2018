@@ -1,12 +1,12 @@
 import { Ingredinent } from './../shopping-list/shoppin.model';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Recipe } from './recipe.model';
 import { ShoppinListService } from '../shopping-list/shoppin-list.service';
 
 @Injectable()
 export class RecipesServiceService {
   
- recipesServiceList = new EventEmitter<Recipe>();
+ //recipesServiceList = new EventEmitter<Recipe>();
 
  private recipes: Recipe[] = [
     new Recipe('Blueberries Raspberries',
@@ -44,6 +44,7 @@ export class RecipesServiceService {
     this.shoppinlist.RecipeToShoppingCat(ingredients);
   }
 //This is Add Shopping List End
+
 //This is a children Recipes adding
 getRecipeDetailRoutingChildren(index: number){
   return this.recipes[index];

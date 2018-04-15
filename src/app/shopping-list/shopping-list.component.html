@@ -4,7 +4,7 @@
     <app-shopping-edit></app-shopping-edit>
     <div class="card">
       <ul class="list-group list-group-flush" >
-        <li class="list-group-item" *ngFor="let ingredient of ingredients">
+        <li class="list-group-item" *ngFor="let ingredient of ingredients; let i = index" (click)="onEditItem(i)">
           {{ ingredient.name }}  <span class="badge badge-light float-right">{{ ingredient.amount }}</span>
         </li>
       </ul>
