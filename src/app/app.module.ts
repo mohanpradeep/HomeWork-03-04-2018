@@ -22,7 +22,7 @@ import { DropdownDirective } from './shared/Course-Directive/dropdown.directive'
 import { ShoppinListService } from './shopping-list/shoppin-list.service';
 import { RecipesStatComponent } from './recipes/recipes-stat/recipes-stat.component';
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -47,7 +47,8 @@ import { FormsModule } from '@angular/forms';
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [RecipesServiceService, ShoppinListService],
   bootstrap: [AppComponent]
