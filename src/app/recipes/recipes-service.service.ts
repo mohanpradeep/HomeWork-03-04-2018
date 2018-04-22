@@ -2,11 +2,11 @@ import { Ingredinent } from './../shopping-list/shoppin.model';
 import { Injectable} from '@angular/core';
 import { Recipe } from './recipe.model';
 import { ShoppinListService } from '../shopping-list/shoppin-list.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RecipesServiceService {
-  
- //recipesServiceList = new EventEmitter<Recipe>();
+  recipesChanged = new Subject;
 
  private recipes: Recipe[] = [
     new Recipe('Blueberries Raspberries',
@@ -43,11 +43,27 @@ export class RecipesServiceService {
   AddShoppinListIngredinent(ingredients: Ingredinent[]){
     this.shoppinlist.RecipeToShoppingCat(ingredients);
   }
-//This is Add Shopping List End
+  //This is Add Shopping List End
 
-//This is a children Recipes adding
-getRecipeDetailRoutingChildren(index: number){
-  return this.recipes[index];
+  //This is a children Recipes adding
+  getRecipeDetailRoutingChildren(index: number){
+    return this.recipes[index];
+  }
+  //This is a Children Recipes adding End
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, NewRecipe: Recipe){
+    this.recipes[index] = NewRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+  deleteRecipe(index: number){
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
 }
-//This is a Children Recipes adding End
-}
+
+
