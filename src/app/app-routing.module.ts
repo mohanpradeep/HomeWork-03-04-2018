@@ -5,6 +5,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipesStatComponent } from './recipes/recipes-stat/recipes-stat.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
+import { ComponentErrorComponent } from './component-error/component-error.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -15,13 +16,13 @@ const appRoutes: Routes = [
         {path: ':id', component: RecipeDetailComponent},
         {path: ':id/edit', component: EditRecipeComponent}
     ]},
-    {path: 'shopping-list', component: ShoppingListComponent}
-]
+    {path: 'shopping-list', component: ShoppingListComponent},
+    {path: '**', component: ComponentErrorComponent}
+];
 
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
-    exports: [RouterModule]  
+    exports: [RouterModule]
 })
 
 export class AppRoutingModule { }
-//this is chlid routing and get good angular.4 time 07:08 AM 

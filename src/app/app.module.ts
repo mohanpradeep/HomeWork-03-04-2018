@@ -23,6 +23,7 @@ import { ShoppinListService } from './shopping-list/shoppin-list.service';
 import { RecipesStatComponent } from './recipes/recipes-stat/recipes-stat.component';
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ComponentErrorComponent } from './component-error/component-error.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TitleCasePipe,
     DropdownDirective,
     RecipesStatComponent,
-    EditRecipeComponent
+    EditRecipeComponent,
+    ComponentErrorComponent
   ],
   imports: [
     BrowserModule,
