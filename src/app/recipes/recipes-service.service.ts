@@ -14,7 +14,7 @@ export class RecipesServiceService {
       'https://images.pexels.com/photos/87818/background-berries-berry-blackberries-87818.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
       [
         new Ingredinent('Bluberrines', 10),
-        new Ingredinent('Raspberries',5)
+        new Ingredinent('Raspberries', 5)
       ]),
     new Recipe('Food Dinner Pasta Spaghetti',
       'This is simply a test',
@@ -36,32 +36,37 @@ export class RecipesServiceService {
 
   constructor(private shoppinlist: ShoppinListService) { }
 
-  getrecipelist(){
+  getrecipelist() {
     return this.recipes;
   }
-//This is Add Shopping List
-  AddShoppinListIngredinent(ingredients: Ingredinent[]){
+// This is Add Shopping List
+  AddShoppinListIngredinent(ingredients: Ingredinent[]) {
     this.shoppinlist.RecipeToShoppingCat(ingredients);
   }
-  //This is Add Shopping List End
+// This is Add Shopping List End
 
-  //This is a children Recipes adding
-  getRecipeDetailRoutingChildren(index: number){
+// This is a children Recipes adding
+  getRecipeDetailRoutingChildren(index: number) {
     return this.recipes[index];
   }
-  //This is a Children Recipes adding End
+// This is a Children Recipes adding End
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
     this.recipesChanged.next(this.recipes.slice());
   }
 
-  updateRecipe(index: number, NewRecipe: Recipe){
+  updateRecipe(index: number, NewRecipe: Recipe) {
     this.recipes[index] = NewRecipe;
     this.recipesChanged.next(this.recipes.slice());
   }
-  deleteRecipe(index: number){
+  deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipesChanged.next(this.recipes.slice());
   }
 }

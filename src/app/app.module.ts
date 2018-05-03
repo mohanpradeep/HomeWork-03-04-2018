@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
 
 import { AppComponent } from './app.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
@@ -24,6 +24,7 @@ import { RecipesStatComponent } from './recipes/recipes-stat/recipes-stat.compon
 import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentErrorComponent } from './component-error/component-error.component';
+import { NewDataHttpService } from './shared/Data-Service/new-data-http.service';
 
 
 @NgModule({
@@ -50,9 +51,10 @@ import { ComponentErrorComponent } from './component-error/component-error.compo
     ModalModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [RecipesServiceService, ShoppinListService],
+  providers: [RecipesServiceService, ShoppinListService, NewDataHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

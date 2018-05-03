@@ -5,11 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TitleCasePipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
-    if(!value)
-    return null;
-
-    return value.substr(0, 24) + '...';
+  transform(value: any, limst: number) {
+    if (value.length > limst) {
+    return value.substr(0, limst) + '...';
+    }
+    return value;
   }
 
 }

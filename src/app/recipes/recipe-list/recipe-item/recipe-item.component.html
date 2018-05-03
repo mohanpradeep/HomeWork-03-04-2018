@@ -1,10 +1,10 @@
 
 <a class="list-group-item" style="cursor: pointer" [routerLink]="[index]" routerLinkActive="active">
-  <span class="float-left" >
-  <h4>{{ recipe.name | titleCase }}</h4>
-  <p class="m-0">{{ recipe.description }}</p>
+  <span class="float-left col-md-9 px-0" >
+  <h4>{{ recipe.name | titleCase:20 }}</h4>
+  <p class="m-0">{{ recipe.description | titleCase:65 }}</p>
   </span>
-  <span class="float-right">
+  <span class="float-right col-md-3 px-0">
   <img [src]= "recipe.imagePath" alt="{{ recipe.name }}" class="img-thumbnail " style="max-height: 63px;">
   </span>
 </a>
